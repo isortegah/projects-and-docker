@@ -1,20 +1,23 @@
 # Docker #
 
 ## Índice
-[**Iniciar docker en Windows**](#iniciar-docker-en-windows)
+[**Iniciar docker en Windows**](#iniciar-docker-en-windows)  
 [**Comandos mas usados Docker**](#comandos-mas-usados-docker)
+[**Despliegue en heroku**](#despliegue-en-heroku)
 
 ## Iniciar docker en windows 
 1. Iniciar machina de docker 
     <pre>docker-machine start default</pre>
-2. `docker-machine env default`
-3. `@FOR /f "tokens=*" %i IN ('docker-machine env default') DO @%i`
+2. Establecer las variables de entorno 
+    <pre>docker-machine env default</pre>
+3. Terminar configuración 
+    <pre>@FOR /f "tokens=*" %i IN ('docker-machine env default') DO @%i</pre>
 
 ### Referencias
 >>**[Docker Machine Overview](https://docs.docker.com/machine/overview/)**
 
 ## Despliegue en heroku
-* Login en heroku
+* Login en heroku  
     <pre> heroku login</pre>
 * Crear app en heroku
     <pre> heroku create <nombre app></pre>
@@ -27,7 +30,7 @@
 * Push heroku forma normal
     <pre>git push heroku master --app <nombre app></pre>
 
->### Referencias
+### Referencias
 >> **[Container Registry and Runtime](https://devcenter.heroku.com/articles/container-registry-and-runtime)**
 
 >> **[Heroku Node.js Docker Image](https://hub.docker.com/r/heroku/nodejs/)** 
