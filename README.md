@@ -2,8 +2,9 @@
 
 ## Índice
 [**Iniciar docker en Windows**](#iniciar-docker-en-windows)  
+[**Despliegue en heroku**](#despliegue-en-heroku)  
+[**Construcción de imagen**](#construccion-de-imagen)    
 [**Comandos mas usados Docker**](#comandos-mas-usados-docker)
-[**Despliegue en heroku**](#despliegue-en-heroku)
 
 ## Iniciar docker en windows 
 1. Iniciar machina de docker 
@@ -14,7 +15,7 @@
     <pre>@FOR /f "tokens=*" %i IN ('docker-machine env default') DO @%i</pre>
 
 ### Referencias
->>**[Docker Machine Overview](https://docs.docker.com/machine/overview/)**
+>**[Docker Machine Overview](https://docs.docker.com/machine/overview/)**
 
 ## Despliegue en heroku
 * Login en heroku  
@@ -31,8 +32,28 @@
     <pre>git push heroku master --app <nombre app></pre>
 
 ### Referencias
->> **[Container Registry and Runtime](https://devcenter.heroku.com/articles/container-registry-and-runtime)**
+> **[Container Registry and Runtime](https://devcenter.heroku.com/articles/container-registry-and-runtime)**
 
->> **[Heroku Node.js Docker Image](https://hub.docker.com/r/heroku/nodejs/)** 
+> **[Heroku Node.js Docker Image](https://hub.docker.com/r/heroku/nodejs/)** 
 
+## Construcción de imagen
+* Crear archivo `Dockerfile`
+    <pre> FROM {count docker hub}/{nombre de imagen}:{tag}  
+    RUN {ejecuta directamente el comando dentro de el contenedor, y luego persiste los cambios}
+    ENV {establece variables de ambiente de nuestro contenedor}
+    CMD {Comandos a ejecutar cuando se corre la imagen}
+    ADD {Agregar archivos a la imagen}
+    EXPOSE {Asociación de puertos}
+    WORKDIR {Establecer directorio de trabajo donde se ejecutaran comandos}
+
+### Referencias  
+
+[**Como construir imagenes**](http://codehero.co/como-construir-imagenes-usando-dockerfiles/)
 ## Comandos mas usados Docker
+
+* Listar imagenes
+    <pre>docker images</pre>
+* Limpiamos todos los contenedores en estado `Exited`:  
+    <pre>docker rm $(docker ps -a | grep Exit | cut -d ' ' -f 1)</pre>
+* Eliminar imagen
+    <pre>docker rmi -f </pre>
