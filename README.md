@@ -4,7 +4,8 @@
 [**Iniciar docker en Windows**](#iniciar-docker-en-windows)  
 [**Despliegue en heroku**](#despliegue-en-heroku)  
 [**Construcción de imagen**](#construccion-de-imagen)    
-[**Comandos mas usados Docker**](#comandos-mas-usados-docker)
+[**Comandos mas usados Docker**](#comandos-mas-usados-docker)  
+[**## Tag push and pull**](###tag-push-and-pull)
 
 ## Iniciar docker en windows 
 1. Iniciar machina de docker 
@@ -45,6 +46,27 @@
     ADD {Agregar archivos a la imagen}
     EXPOSE {Asociación de puertos}
     WORKDIR {Establecer directorio de trabajo donde se ejecutaran comandos}
+* Comando de creación de imagen:
+    <pre>docker build -f DockerfileBase --force-rm -t isortegah/nodejs:v1 .</pre>
+* Correr la imagen mostrando el bash.
+    <pre>docker run -it isortegah/nodejs:v1 /bin/bash</pre>
+
+## Tag push and pull
+
+
+
+### Push 
+Estructura del comando para crear tag
+![tag](imgs/tag.png)  
+* Comando para crear tag:
+    <pre>docker tag d5e2056ec48c isortegah/nodejs:v1</pre>
+* Iniciar sesión en docker hub 
+    <pre>docker login</pre>
+* Hacer push:
+<pre>docker push isortegah/nodejs:v1</pre>
+
+### Pull 
+
 
 ### Referencias  
 
