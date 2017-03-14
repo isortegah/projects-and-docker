@@ -1,12 +1,15 @@
 # Docker #
 
-## Índice
+## Índice  
+[**Instala Docker ToolBox en Windows**](#instala-docker-toolBox-en-windows)
 [**Iniciar docker en Windows**](#iniciar-docker-en-windows)  
 [**Despliegue en heroku**](#despliegue-en-heroku)  
 [**Construcción de imagen**](#construccion-de-imagen)    
 [**Comandos mas usados Docker**](#comandos-mas-usados-docker)  
-[**## Tag push and pull**](###tag-push-and-pull)
+[**Tag push and pull**](###tag-push-and-pull)
 
+## Instalar Docker ToolBox en Windows
+1. Descargar [**ToolBox**](https://www.docker.com/products/docker-toolbox)  
 ## Iniciar docker en windows 
 1. Iniciar machina de docker 
     <pre>docker-machine start default</pre>
