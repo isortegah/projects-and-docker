@@ -5,7 +5,8 @@
 [**Despliegue en heroku**](#despliegue-en-heroku)  
 [**Construcción de imagen**](#construccion-de-imagen)    
 [**Comandos mas usados Docker**](#comandos-mas-usados-docker)  
-[**## Tag push and pull**](###tag-push-and-pull)
+[**Tag push and pull**](#tag-push-and-pull)  
+[**Comandos Docker Machine**](#comandos-docker-machine)
 
 ## Iniciar docker en windows 
 1. Iniciar machina de docker 
@@ -79,3 +80,15 @@ Estructura del comando para crear tag
     <pre>docker rm $(docker ps -a | grep Exit | cut -d ' ' -f 1)</pre>
 * Eliminar imagen
     <pre>docker rmi -f </pre>
+
+## Comandos Docker Machine
+
+* Crear docker-machine
+    <pre>docker-machine create --driver virtualbox dev</pre>
+* Listar docker-machine
+    <pre>docker-machine ls</pre>
+* Elimina docker-machine
+    <pre>docker-machine rm {nombre machine}</pre>
+
+### Referencias
+>[Docker Machine](https://docs.docker.com/machine/reference/)
