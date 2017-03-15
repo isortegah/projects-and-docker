@@ -74,6 +74,12 @@ Estructura del comando para crear tag
 ### Referencias  
 
 [**Como construir imagenes**](http://codehero.co/como-construir-imagenes-usando-dockerfiles/)
+
+## Comandos mas usados Docker-Machine
+
+* Crear Docker Machine   
+<pre>docker-machine create < nombre ></pre>
+
 ## Comandos mas usados Docker
 
 * Listar imagenes
