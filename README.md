@@ -8,6 +8,8 @@
 [**Tag push and pull**](#tag-push-and-pull)  
 [**Comandos Docker Machine**](#comandos-docker-machine)
 
+## Instalar Docker ToolBox en Windows
+1. Descargar [**ToolBox**](https://www.docker.com/products/docker-toolbox)  
 ## Iniciar docker en windows 
 1. Iniciar machina de docker 
     <pre>docker-machine start default</pre>
@@ -72,6 +74,12 @@ Estructura del comando para crear tag
 ### Referencias  
 
 [**Como construir imagenes**](http://codehero.co/como-construir-imagenes-usando-dockerfiles/)
+
+## Comandos mas usados Docker-Machine
+
+* Crear Docker Machine   
+<pre>docker-machine create < nombre ></pre>
+
 ## Comandos mas usados Docker
 
 * Listar imagenes
