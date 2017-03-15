@@ -9,3 +9,9 @@ Archivo  Docker que fue utlizado para generar imagen
 
 1. Creación de la imagen agregando la configuración para Heroku.
  <pre>docker build -f Dockerfile --force-rm -t isortegah/nodejs7_7:v1 .</pre>
+
+ 
+
+## Referencia
+
+[**Docker Node**](https://github.com/nodejs/docker-node)
