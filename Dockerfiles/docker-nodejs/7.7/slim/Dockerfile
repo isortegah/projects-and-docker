@@ -50,3 +50,9 @@ RUN set -ex \
   && rm yarn.js.asc \
   && mv yarn.js /usr/local/bin/yarn \
   && chmod +x /usr/local/bin/yarn
+
+# Configuración para Heroku
+RUN mkdir -p /app /app/.profile.d
+ENV PATH /app/user/node_modules/.bin:/usr/local/bin:$PATH
+WORKDIR /app/user
+RUN echo "export PATH=\"/usr/local/bin:/app/user/node_modules/.bin:\$PATH\"" > /app/.profile.d/nodejs.sh
