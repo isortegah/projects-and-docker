@@ -1,10 +1,10 @@
-hub:
-  image: selenium/hub
+seleniumhub:
+  image: selenium/hub:latest
   ports:
-    - "4444:4444"
-chrome:
-  image: selenium/standalone-chrome-debug
+    - 4444:4444
+chromenode:
+  image: selenium/node-chrome:latest
   links:
-    - hub 
+    - seleniumhub:hub 
   ports:
     - "5900:5900"
