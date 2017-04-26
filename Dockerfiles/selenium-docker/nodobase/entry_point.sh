@@ -1,5 +1,4 @@
 #!/bin/bash
-
 source /opt/bin/functions.sh
 /opt/selenium/generate_config > /opt/selenium/config.json
 
@@ -35,6 +34,8 @@ SERVERNUM=$(get_server_num)
 
 rm -f /tmp/.X*lock
 
+sleep 5
+echo "Se ejecuta registro"
 xvfb-run -n $SERVERNUM --server-args="-screen 0 $GEOMETRY -ac +extension RANDR" \
   java ${JAVA_OPTS} -jar /opt/selenium/selenium-server-standalone.jar \
     -role node \

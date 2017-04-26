@@ -3,7 +3,7 @@ seleniumhub:
   ports:
     - 4444:4444
 chromenode: 
-  image: isortegah/node-chrome:v1
+  image: isortegah/nodechrome:v1
   links: 
     - seleniumhub:hub
   ports: 
