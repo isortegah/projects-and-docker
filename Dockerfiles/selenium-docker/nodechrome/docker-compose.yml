@@ -1,0 +1,10 @@
+seleniumhub:
+  image: selenium/hub:latest
+  ports:
+    - 4444:4444
+chromenode: 
+  image: isortegah/node-chrome:v1
+  links: 
+    - seleniumhub:hub
+  ports: 
+    - "5900:5900"
