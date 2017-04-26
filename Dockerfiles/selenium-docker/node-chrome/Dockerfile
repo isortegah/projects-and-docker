@@ -1,4 +1,4 @@
-FROM isortegah/nodobase:v1
+FROM isortegah/node-base:latest
 
 # maintainer details
 MAINTAINER ISORTEGAH "isortegah@gmail.com"
