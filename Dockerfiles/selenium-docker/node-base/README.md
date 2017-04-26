@@ -12,7 +12,18 @@ El codigó base oficial se encuentra en la siguiente liga [`selenium/node-base`]
 
 1. Generación de `Dockerfile`
 ```cmd
-
+./generate.sh 3.4.0-bismuth
 ```
-
+2. Construcción de la imagen
+```cmd
+docker build -t isortegah/node-base:latest
+```
+3. Login en Docker hub
+```cmd
+docker login
+```
+4. Push a Docker Hub
+```cmd
+docker push isortegah/node-base:latest
+```
 
