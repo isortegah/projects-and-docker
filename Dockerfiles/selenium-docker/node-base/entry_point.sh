@@ -35,6 +35,8 @@ SERVERNUM=$(get_server_num)
 
 rm -f /tmp/.X*lock
 
+sleep 6
+
 xvfb-run -n $SERVERNUM --server-args="-screen 0 $GEOMETRY -ac +extension RANDR" \
   java ${JAVA_OPTS} -jar /opt/selenium/selenium-server-standalone.jar \
     -role node \
