@@ -30,12 +30,11 @@ RUN chmod +x /opt/bin/entry_point.sh
 #============================
 # Some configuration options
 #============================
-ENV SCREEN_WIDTH 1360
-ENV SCREEN_HEIGHT 1020
+ENV SCREEN_WIDTH 1920
+ENV SCREEN_HEIGHT 1080
 ENV SCREEN_DEPTH 24
 ENV DISPLAY :99.0
 
 USER seluser
-RUN echo "Hola mundo"
 
 CMD ["/opt/bin/entry_point.sh"]
