@@ -1,7 +1,7 @@
 FROM isortegah/node-base:latest
 
 # maintainer details
-MAINTAINER ISORTEGAH "isortegah@gmail.com"
+LABEL authors=ISORTEGAH 
 
 USER root
 
@@ -69,6 +69,6 @@ RUN chown -R seluser:seluser /opt/selenium
 
 # Following line fixes
 # https://github.com/SeleniumHQ/docker-selenium/issues/87
-RUN echo "DBUS_SESSION_BUS_ADDRESS=/dev/null" >> /etc/environment
+ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
 
 USER seluser

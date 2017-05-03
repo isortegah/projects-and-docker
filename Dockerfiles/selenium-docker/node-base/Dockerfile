@@ -2,8 +2,8 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.txt INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM selenium/base:3.4.0-bismuth
-MAINTAINER Selenium <selenium-developers@googlegroups.com>
+FROM selenium/base:3.4.0-chromium
+LABEL authors=SeleniumHQ
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN true

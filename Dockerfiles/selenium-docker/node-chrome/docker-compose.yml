@@ -3,16 +3,8 @@ seleniumhub:
   ports:
     - 4444:4444
 chromenode: 
-  image: isortegah/node-chrome:latest
+  image: selenium/node-chrome
   links: 
     - seleniumhub:hub
   ports: 
     - "5900:5900"
-qa_nodo1:
-    image: qa-ci
-    ports:
-      - "3000:3000"
-qa_nodo2:
-    image: qa-rest
-    ports:
-      - "8080:8080"
