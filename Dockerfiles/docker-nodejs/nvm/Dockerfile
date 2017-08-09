@@ -38,8 +38,27 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && apk del .build-deps-yarn
 
+RUN apk add --update bash && rm -rf /var/cache/apk/*
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+
+# Install nvm with node and npm
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 6.11.2
+RUN touch ~/.bashrc
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash \
+    && source $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION 
+#    && nvm alias default $NODE_VERSION \
+#    && nvm use default
+
+#ENV NODE_PATH  $NVM_DIR/v$NODE_VERSION/lib/node_modules
+#ENV PATH       $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
+#RUN npm version
+
 # Configuración para Heroku
-RUN mkdir -p /app /app/.profile.d
-ENV PATH /app/user/node_modules/.bin:/usr/local/bin:$PATH
-WORKDIR /app/user
-RUN echo "export PATH=\"/usr/local/bin:/app/user/node_modules/.bin:\$PATH\"" > /app/.profile.d/nodejs.sh
+#RUN mkdir -p /app /app/.profile.d
+#ENV PATH /app/user/node_modules/.bin:/usr/local/bin:$PATH
+#WORKDIR /app/user
+#RUN echo "export PATH=\"/usr/local/bin:/app/user/node_modules/.bin:\$PATH\"" > /app/.profile.d/nodejs.sh
