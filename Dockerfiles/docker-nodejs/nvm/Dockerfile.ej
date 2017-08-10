@@ -1,0 +1,22 @@
+FROM mini/base
+
+RUN apk-install \
+      bash \
+      tar \
+      curl \
+      git \
+      c-ares \
+      libgcc \
+      libstdc++ \
+      libuv
+
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
+    touch ~/.bashrc
+
+ENV NODE_VERSION 6.11.2
+
+RUN NVM_VERSION="v0.30.1" && \
+    echo $NVM_VERSION && \
+    curl https://raw.githubusercontent.com/creationix/nvm/$NVM_VERSION/install.sh | bash 
+#RUN source ~/.bashrc && \
+ #   nvm install $NODE_VERSION

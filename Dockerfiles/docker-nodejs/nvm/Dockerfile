@@ -45,10 +45,11 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # Install nvm with node and npm
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 6.11.2
-RUN touch ~/.bashrc
-RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash \
-    && source $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION 
+RUN cat /etc/profile >> /root/.profile
+WORKDIR /root
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash 
+    #&& source $NVM_DIR/nvm.sh \
+    #&& nvm install $NODE_VERSION 
 #    && nvm alias default $NODE_VERSION \
 #    && nvm use default
 

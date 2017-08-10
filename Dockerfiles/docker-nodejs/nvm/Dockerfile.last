@@ -1,0 +1,15 @@
+FROM alpine:3.6
+
+RUN adduser -S node
+
+RUN apk add --update curl bash tar git libgcc libstdc++ libuv
+
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh 
+    
+USER node 
+RUN touch ~/.bashrc
+WORKDIR /home/node
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+
+RUN . "/home/node/.nvm/nvm.sh" && nvm install v5.10.1 
+#&& nvm use v5.10.1 && nvm alias default v5.10.1
