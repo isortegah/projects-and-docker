@@ -1,0 +1,26 @@
+FROM openjdk:8-jdk
+
+RUN apt-get update && apt-get install -y git curl zip build-essential libssl-dev
+
+# Replace shell with bash so we can source files
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# Install scala
+RUN mkdir /usr/local/src/scala
+WORKDIR /usr/local/src/scala
+RUN wget http://www.scala-lang.org/files/archive/scala-2.11.8.tgz
+RUN tar -zxvf scala-2.11.8.tgz
+
+# Install sbt
+RUN mkdir /usr/local/src/sbt
+WORKDIR /usr/local/src/sbt
+RUN wget https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.12/sbt-launch.jar
+ADD sbt /usr/local/src/sbt/
+RUN chmod a+x /usr/local/src/sbt/sbt
+
+ENV SCALA_HOME /usr/local/src/scala/scala-2.11.8
+ENV SBT_HOME   /usr/local/src/sbt
+ENV PATH       $SCALA_HOME/bin:$SBT_HOME:$PATH
+
+RUN sbt sbtVersion
+RUN scala -version

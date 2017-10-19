@@ -1,0 +1,1 @@
+docker run -p 8080:8080 -v //c/Users/iseor/.jenkins/://root/.jenkins jenkins
