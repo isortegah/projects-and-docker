@@ -6,7 +6,7 @@ ENV SCALA_HOME /usr/local/scala
 ENV SBT_HOME /usr/local/sbt
 ENV PATH ${PATH}:$SCALA_HOME/bin:${SBT_HOME}/bin
 
-RUN apk add --no-cache --update bash wget tar
+RUN apk add --no-cache --update bash wget tar && rm -rf /var/cache/apk/*
 
 # Install sbt
 RUN mkdir -p "$SBT_HOME" && \
