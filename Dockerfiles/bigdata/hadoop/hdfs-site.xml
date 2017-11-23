@@ -1,0 +1,42 @@
+<configuration>
+<property>
+  <name>fs.default.name</name>
+  <value>hdfs://localhost:9000</value>
+  </property>
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>file:///home/root/hdfs/namenode</value>
+  </property>
+  <property>
+    <name>dfs.datanode.data.dir</name>
+    <value>file:///home/root/hdfs/datanode</value>
+  </property>
+  <property>
+    <name>dfs.namenode.rpc-bind-host</name>
+      <value>0.0.0.0</value>
+  </property>
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+  <property>
+    <name>dfs.permissions.enabled</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>dfs.datanode.address</name>
+    <value>0.0.0.0:50010</value>
+  </property>
+  <property>
+    <name>  dfs.datanode.ipc.address</name>
+    <value>0.0.0.0:50020</value>
+  </property>
+  <property>
+    <name>dfs.datanode.use.datanode.hostname</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>dfs.client.use.datanode.hostname</name>
+    <value>true</value>
+  </property>
+</configuration>
