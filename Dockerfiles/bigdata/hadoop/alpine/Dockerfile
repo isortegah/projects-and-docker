@@ -1,5 +1,6 @@
 FROM openjdk:alpine
-#USER root
+
+USER root
 
 RUN apk add --no-cache --update bash bash-completion which wget tar curl openssh openrc nmap \
     && rm -rf /var/cache/apk/*
