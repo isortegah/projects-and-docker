@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-MAINTAINER ISORTEGA <iortegah@gmail.com>
+MAINTAINER ISORTEGA <isortegah@gmail.com>
 
 RUN apt-get update && \
 	apt-get install -y openjdk-8-jdk && \
