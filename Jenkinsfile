@@ -2,6 +2,7 @@ pipeline {
     agent {
         dockerfile { 
             filename 'Dockerfile'
+            additionalBuildArgs '-t isortegah/test:v1'
         }
     }
     stages {
