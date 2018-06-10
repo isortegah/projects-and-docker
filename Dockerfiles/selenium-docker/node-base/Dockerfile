@@ -75,9 +75,9 @@ ENV DISPLAY :99.0
 # Selenium Configuration
 #========================
 # As integer, maps to "maxInstances"
-ENV NODE_MAX_INSTANCES 1
+ENV NODE_MAX_INSTANCES 4
 # As integer, maps to "maxSession"
-ENV NODE_MAX_SESSION 1
+ENV NODE_MAX_SESSION 4
 # As address, maps to "host"
 ENV NODE_HOST 0.0.0.0
 # As integer, maps to "port"
