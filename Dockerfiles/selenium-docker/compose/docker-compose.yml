@@ -5,6 +5,12 @@ seleniumhub:
 chromenode:
   image: selenium/node-chrome:latest
   links:
-    - seleniumhub:hub 
+    - seleniumhub:hub
   ports:
     - "5900:5900"
+chromenode1:
+  image: selenium/node-chrome:latest
+  links:
+    - seleniumhub:hub
+  ports:
+    - "5901:5900"
