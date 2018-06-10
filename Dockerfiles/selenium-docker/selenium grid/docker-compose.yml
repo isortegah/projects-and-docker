@@ -19,7 +19,17 @@ services:
       - hub
     networks:
       - selenium-grid
-
+  chrome-debug:
+    image: isortegah/node-chrome-debug
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+    ports:
+      - 5901:5900
+    depends_on:
+      - hub
+    networks:
+      - selenium-grid
 networks:
   selenium-grid:
     driver: bridge

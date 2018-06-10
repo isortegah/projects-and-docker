@@ -1,4 +1,4 @@
-# Selenium Grid Node Base
+# Selenium Grid Node Chrome
 
 Esta imagen es el nodo para Chrome
 
