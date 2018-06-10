@@ -35,7 +35,7 @@ SERVERNUM=$(get_server_num)
 
 rm -f /tmp/.X*lock
 
-sleep 20
+sleep 6
 echo "Termina sleep"
 
 xvfb-run -n $SERVERNUM --server-args="-screen 0 $GEOMETRY -ac +extension RANDR" \
