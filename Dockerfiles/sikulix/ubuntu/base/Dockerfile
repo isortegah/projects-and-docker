@@ -81,3 +81,93 @@ RUN ln -s ${SIKULIX_HOME}/runsikulix /usr/local/bin/ \
  && ln -s ${SIKULIX_HOME}/sikulix.jar /usr/local/bin/ \
  && echo "Clean-up:" \
  && rm -rf /var/lib/apt/lists/* /tmp/* ${SIKULIX_HOME}/sikulix-setup.jar ${SIKULIX_HOME}/*-SetupLog.txt ${SIKULIX_HOME}/SetupStuff
+
+#==============================
+# Locale and encoding settings
+#==============================
+ENV LANG_WHICH es
+ENV LANG_WHERE MX
+ENV ENCODING UTF-8
+ENV LANGUAGE ${LANG_WHICH}_${LANG_WHERE}.${ENCODING}
+ENV LANG ${LANGUAGE}
+# Layer size: small: ~9 MB
+# Layer size: small: ~9 MB MB (with --no-install-recommends)
+RUN apt-get -qqy update \
+  && apt-get -qqy --no-install-recommends install \
+    language-pack-es \
+    tzdata \
+    locales \
+  && locale-gen ${LANGUAGE} \
+  && dpkg-reconfigure --frontend noninteractive locales \
+  && apt-get -qyy autoremove \
+  && rm -rf /var/lib/apt/lists/* \
+  && apt-get -qyy clean
+
+#================
+# Font libraries
+#================
+RUN apt-get -qqy update \
+  && apt-get -qqy --no-install-recommends install \
+    libfontconfig \
+    libfreetype6 \
+    xfonts-cyrillic \
+    xfonts-scalable \
+    fonts-liberation \
+    fonts-ipafont-gothic \
+    fonts-wqy-zenhei \
+    fonts-tlwg-loma-otf \
+    ttf-ubuntu-font-family \
+  && rm -rf /var/lib/apt/lists/* \
+  && apt-get -qyy clean
+
+#=====
+# VNC
+#=====
+RUN apt-get update -qqy \
+  && apt-get -qqy install \
+  x11vnc \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+
+#=========
+# fluxbox
+# A fast, lightweight and responsive window manager
+#=========
+RUN apt-get update -qqy \
+  && apt-get -qqy install \
+    fluxbox \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+
+#==============================
+# Scripts to run
+#==============================
+COPY entry_point.sh \
+functions.sh \
+  /opt/bin/
+
+RUN chown sikuser:sikuser /opt/bin/entry_point.sh \
+    && chmod 500 /opt/bin/entry_point.sh
+#===================================================
+# Run the following commands as non-privileged user
+#===================================================
+
+USER sikuser
+
+#==============================
+# Generating the VNC password as sikuser
+# So the service can be started with sikuser
+#==============================
+
+RUN mkdir -p ~/.vnc \
+  && x11vnc -storepasswd secret ~/.vnc/passwd
+
+#============================
+# Some configuration options
+#============================
+ENV SCREEN_WIDTH 1360
+ENV SCREEN_HEIGHT 1020
+ENV SCREEN_DEPTH 24
+ENV DISPLAY :99.0
+
+CMD ["/opt/bin/entry_point.sh"]
+
+EXPOSE 5900
