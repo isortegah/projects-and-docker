@@ -26,3 +26,9 @@ Ejecución en paralelo https://jenkins.io/blog/2017/09/25/declarative-1/
 https://jenkins.io/pipeline/getting-started-pipelines/
 https://jenkins.io/doc/pipeline/tour/running-multiple-steps/
 Instalar interface Blue ocean https://jenkins.io/doc/book/blueocean/getting-started/#on-an-existing-jenkins-instance
+
+
+## Jobdsl
+https://jenkinsci.github.io/job-dsl-plugin/
+con proyecto free style
+se le llam dsl-seed
