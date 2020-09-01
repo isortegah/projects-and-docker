@@ -1,3 +1,4 @@
 .DS_Store
 Dockerfiles/.DS_Store
 .idea/
+Dockerfiles/docker-jupyter/.ipynb_checkpoints/
